@@ -1,6 +1,6 @@
 <template>
  <div>
-# HTML書いてく
+# HTML書いてく 
   <img src="tsukubamap.png">
  </div>
 </template>
