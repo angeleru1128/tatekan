@@ -21,6 +21,6 @@ export default {
   text-decoration: none;
   position: relative;
   left: 1000px;
-  bottom: 30px;
+  bottom: 40px;
 }
 </style>
