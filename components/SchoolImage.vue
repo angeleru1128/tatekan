@@ -1,7 +1,16 @@
 <template>
- <div>
-# HTML書いてく 
+<div>
   <img src="tsukubamap.png">
- </div>
+</div>
 </template>
 
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
