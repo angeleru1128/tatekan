@@ -15,9 +15,9 @@ export default {
 <style>
 img {
   position: relative;
-  top: 180px;
+  top: 100px;
   left: 10px;
 
-  
+
 }
 </style>
