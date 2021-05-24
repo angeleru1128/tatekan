@@ -10,6 +10,7 @@
 import SchoolImage from "@/components/SchoolImage";
 import UploadButton from "@/components/imageInput";
 import DetailInput from "@/components/detailInput";
+
 export class TatekanData {
   constructor(title, image, description, pos_x, pos_y) {
     this.title = title;
@@ -24,7 +25,7 @@ export default {
   data() {
     return {
       post: TatekanData()
-    };
+    }
   },
   methods: {
     onUpload: function() {
@@ -39,11 +40,11 @@ export default {
       //SQL問い合わせ(save)
     }
   },
-  components: {
+    components: {
     SchoolImage,
     UploadButton,
     DetailInput
-  }
+  },
 }
 </script>
 
