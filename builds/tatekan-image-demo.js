@@ -6,3 +6,5 @@ const demos = {
         yAxis: 20,
     }
 }
+
+export {demos}
