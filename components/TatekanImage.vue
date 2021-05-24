@@ -4,8 +4,8 @@
     </div>
 </template>
 <style scoped>
-img{
-    /* position: absolute;
-    float: left; */
-    }
+/* img{
+     position: absolute;
+    float: left; 
+    } */
 </style>
