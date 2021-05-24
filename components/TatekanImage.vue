@@ -5,7 +5,7 @@
 </template>
 <style scoped>
 img{
-    position: absolute;
-    float: left;
+    /* position: absolute;
+    float: left; */
     }
 </style>
