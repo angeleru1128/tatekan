@@ -1,9 +1,17 @@
 <template>
   <div class="components">
-    <SchoolImage />
-    <TatekanImage />
-    <UploadButton />
-    <DetailInput />
+    <v-container>
+      <v-row>
+        <v-col>
+          <SchoolImage />
+        </v-col>
+        <v-col>
+          <TatekanImage />
+          <UploadButton />
+          <DetailInput />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -19,15 +27,14 @@ export default {
       //画像アップロード時の挙動
       let image = event.target.files; //どこかに保存
     },
-    onSubmit: function() {
-    }
+    onSubmit: function() {}
   },
   components: {
     SchoolImage,
     UploadButton,
     DetailInput,
     TatekanImage
-  },
+  }
 };
 </script>
 
