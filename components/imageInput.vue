@@ -1,9 +1,9 @@
 <template>
- <div>
+<div>
   <a href="#" class="UploadButton" role="button">Upload</a>
   <label for="avatar">タテカン写真選択</label>
-  <input type="file"　id="avatar" name="avatar" accept="image/png, image/jpeg">
- </div>
+  <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+</div>
 </template>
 
 
