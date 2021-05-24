@@ -23,9 +23,9 @@ export default {
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  position: relative;
+  /* position: relative;
   left: 1000px;
-  bottom: 40px;
+  bottom: 40px; */
 }
 
 .avater {
@@ -42,9 +42,9 @@ input,
 label {
   margin: .4rem 0;
   color: #000000;
-  position: relative;
+  /* position: relative;
   left: 1000px;
-  bottom: 40px;
+  bottom: 40px; */
 }
 
 </style>

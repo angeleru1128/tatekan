@@ -12,11 +12,11 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 img {
   position: relative;
-  top: 180px;
-  left: 10px;
+  /* top: 180px;
+  left: 10px; */
 
   
 }
