@@ -42,6 +42,9 @@ input,
 label {
   margin: .4rem 0;
   color: #000000;
+  position: relative;
+  left: 1000px;
+  bottom: 40px;
 }
 
 </style>
