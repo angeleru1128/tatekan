@@ -1,7 +1,7 @@
 <template>
-<div>
+ <div>
   <img src="tsukubamap.png">
-</div>
+ </div>
 </template>
 
 
@@ -11,6 +11,11 @@ export default {
 }
 </script>
 
-<style>
 
+<style>
+img {
+  position: relative;
+  top: 180px;
+  left: 10px;
+}
 </style>
