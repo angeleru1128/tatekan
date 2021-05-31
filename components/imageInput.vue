@@ -1,8 +1,9 @@
 <template>
 <div>
   <a href="#" class="UploadButton" role="button">Upload</a>
+
   <label for="avatar">タテカン写真選択</label>
-  <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+  <input type="file" id="img" name="img" accept="image/png, image/jpeg">
 </div>
 </template>
 
@@ -14,7 +15,7 @@ export default {
 </script>
 
 
-<style> 
+<style scoped> 
 .UploadButton {
   background-color: #00a656;
   border-radius: 1.5em;
@@ -25,28 +26,17 @@ export default {
   text-decoration: none;
   /* position: relative;
   left: 1000px;
-  bottom: 40px; */
+  bottom: 100px;
 }
 
-.avater {
-  color: #000000;
-}
-
-label {
-  display: block;
-  font: 1rem 'Fira Sans', sans-serif;
-  color: #000000;
-}
-
-input,
-label {
+label,
+input {
   margin: .4rem 0;
   color: #000000;
   /* position: relative;
   left: 1000px;
   bottom: 40px; */
 }
-
 </style>
 
 
