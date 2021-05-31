@@ -12,6 +12,9 @@
         </v-col>
       </v-row>
     </v-container>
+          <div v-for="demo in demos" v-bind:key="demo.description">
+          {{demo.description}}
+        </div>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ import SchoolImage from "@/components/SchoolImage";
 import UploadButton from "@/components/imageInput";
 import DetailInput from "@/components/detailInput";
 import TatekanImage from "@/components/TatekanImage";
+import demos from "@/builds/tatekan-image-demo.json";
 
 export default {
   methods: {
@@ -28,6 +32,11 @@ export default {
       let image = event.target.files; //どこかに保存
     },
     onSubmit: function() {}
+  },
+  data() {
+    return{
+    demos: demos
+    }
   },
   components: {
     SchoolImage,

@@ -24,18 +24,6 @@ export default {
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  /* position: relative;
-  left: 1000px;
-  bottom: 100px;
-}
-
-label,
-input {
-  margin: .4rem 0;
-  color: #000000;
-  /* position: relative;
-  left: 1000px;
-  bottom: 40px; */
 }
 </style>
 
