@@ -48,17 +48,20 @@
       class="overflow-y-auto"
       max-height="600"
     >
-      <v-container style="height: 1000px;"></v-container>
+    <!-- headerに隠れてしまう分下にずらした。後で直す -->
+      <v-container style="height: 225px;"></v-container> 
+    
     </v-sheet>
   </v-card>
 </template>
 
-<script>
-export default {
-    name: 'HeaderMenu'
-};
-</script>
 
-<style scoped>
+<script>
+　export default {
+    name: 'HeaderMenu'
+　};
+  
+</script>
+<style scoped>　
 </style>
 
