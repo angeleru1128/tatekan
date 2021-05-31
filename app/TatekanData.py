@@ -13,10 +13,10 @@ class TatekanData:
     # 画像ファイルのファイル名を生成
     # 
     def createFileName(db_cur, uploaded_name):
-        fname = list(db_cur.execute("select count(*) from tatekan"))[0]
-        return fname + "." + (uploaded_name.split("."))[1]
+        fname = list(db_cur.execute("select count(*) from tatekan;"))[0]
+        return fname + "." + (uploaded_name.split("."))[-1]
 
     # データベースに登録
     def insertToDB(db_cur, tatekanData, table_name):
-        sql = "insert into " + table_name + " values(?, ?, ?, ?, ?)"
+        sql = "insert into " + table_name + " values(?, ?, ?, ?, ?);"
         db_cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
