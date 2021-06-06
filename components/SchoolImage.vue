@@ -1,9 +1,6 @@
 <template>
- <div>
-  <img src="tsukubamap.png">
- </div>
+  <img src="tsukubabigmap.png">
 </template>
-
 
 <script>
 export default {
@@ -11,13 +8,8 @@ export default {
 }
 </script>
 
-
-<style scoped>
+<style>
 img {
-  position: relative;
-  /* top: 180px;
-  left: 10px; */
-
-
+  height: 100%;
 }
 </style>
