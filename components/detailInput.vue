@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div id="target">
   <label for="xy">x,y 入力</label>
   <input type="number" name="number" max="50" value="15">
   <input type="number" name="number" max="50" value="15">
@@ -9,8 +9,21 @@
 
 <script>
 export default {
+// documentgetElementById(target)
+// .addEventListener("click", function(event) {
+// 	var clickX = event.pageX ;
+// 	var clickY = event.pageY ;
 
-}
+// 	// 要素の位置を取得
+// 	var clientRect = this.getBoundingClientRect() ;
+// 	var positionX = clientRect.left + window.pageXOffset ;
+// 	var positionY = clientRect.top + window.pageYOffset ;
+
+// 	// 要素内におけるクリック位置を計算
+// 	var x = clickX - positionX ;
+// 	var y = clickY - positionY ;
+// };)
+// }
 </script>
 
 <style scoped>
