@@ -8,7 +8,7 @@
       </v-col> 
 
     <!-- <右側のグリッド 背景ミントグリーンの場所> -->
-        <v-col cols="6" sm="6" md="6" lg="6" xl="6" style="background-color: #F0FFF0" >
+        <v-col cols="6" sm="6" md="6" lg="6" xl="6" style="background-color: #AFDBC9" >
           <v-row style="height: 600px;" no-gutters>  
       
     <!-- <右側のグリッド　背景白の場所> -->
@@ -33,14 +33,15 @@
               <v-divider class="mx-4"></v-divider>
 
     <!-- <Uploadボタンの表示> -->
-              <v-col cols="6" sm="6" md="6" lg="6" xl="6" >
-                <v-btn
+              <v-col cols="12" sm="12" md="12" lg="12" xl="12" >
+                <!-- <v-btn
                   color="deep-purple lighten-2"
                   text
                   @click="Upload"
                 >
                 Upload
-                </v-btn>
+                </v-btn> -->
+                <imageInput />
               </v-col> 
     
               <v-divider></v-divider>
