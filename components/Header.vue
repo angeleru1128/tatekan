@@ -1,7 +1,7 @@
 <template>
   <v-card class="overflow-hidden">
+
     <v-app-bar
-      absolute
       color="#6A76AB"
       dark
       shrink-on-scroll
@@ -10,6 +10,8 @@
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-3"
     >
+
+    <!-- header画像引っ張ってくる -->
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -19,10 +21,11 @@
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Welcome to Tsukuba</v-app-bar-title>
+      <v-app-bar-title>Find a tatekan</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
+<!-- <検索マーク、いいねのハート、三点マークのアイコン念のために表示できるように記載>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
@@ -33,23 +36,14 @@
 
       <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      </v-btn> -->
 
-      <template v-slot:extension>
-        <v-tabs align-with-title>
-          <v-tab>Tab 1</v-tab>
-          <!-- <v-tab>Tab 2</v-tab> -->
-          <!-- <v-tab>Tab 3</v-tab> -->
-        </v-tabs>
-      </template>
     </v-app-bar>
     <v-sheet
       id="scrolling-techniques-3"
       class="overflow-y-auto"
       max-height="600"
     >
-    <!-- headerに隠れてしまう分下にずらした。後で直す -->
-      <v-container style="height: 225px;"></v-container> 
     
     </v-sheet>
   </v-card>
@@ -62,6 +56,7 @@
 　};
   
 </script>
+
+
 <style scoped>　
 </style>
-
