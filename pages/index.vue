@@ -41,7 +41,7 @@
                 >
                 Upload
                 </v-btn> -->
-                <imageInput />
+                <!-- <imageInput /> -->
               </v-col> 
     
               <v-divider></v-divider>

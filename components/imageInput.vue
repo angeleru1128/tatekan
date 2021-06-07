@@ -1,13 +1,11 @@
 <template>
-
   <v-container>
     <v-row>
+      <input type="file" v-on:change="select_file" />
       <v-btn
-      :loading="loading3"
-      :disabled="loading3"
       color=#F0FFF0
       class="ma-2 white--text"
-      @click="loader = 'loading3'"
+      @click="send"
     >
       Upload
       <v-icon
@@ -23,7 +21,7 @@
 
 <script>
 export default {
-
+  
 }
 </script>
 

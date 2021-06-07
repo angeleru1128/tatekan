@@ -1,43 +1,88 @@
 <template>
- <div id="target">
-  <label for="xy">x,y 入力</label>
-  <input type="number" name="number" max="50" value="15">
-  <input type="number" name="number" max="50" value="15">
- </div>
+  <div>
+    <v-container>
+      <form>
+      <v-row>
+        <input type="file" v-on:change="select_file" />
+        <v-btn color="#F0FFF0" class="ma-2 white--text" @click="send">
+          Upload
+          <v-icon right dark>
+            mdi-cloud-upload
+          </v-icon>
+        </v-btn>
+      </v-row>
+      <v-row>
+        <div id="target">
+          <label for="xy">x,y 入力</label>
+          <input
+            type="number"
+            name="number"
+            max="50"
+            value="15"
+            v-model="pos_x"
+            placeholder="x"
+          />
+          <input
+            type="number"
+            name="number"
+            max="50"
+            value="15"
+            v-model="pos_y"
+            placeholder="y"
+          />
+        </div>
+      </v-row>
+      </form>
+    </v-container>
+  </div>
 </template>
-
 
 <script>
 export default {
-// documentgetElementById(target)
-// .addEventListener("click", function(event) {
-// 	var clickX = event.pageX ;
-// 	var clickY = event.pageY ;
+  // documentgetElementById(target)
+  // .addEventListener("click", function(event) {
+  // 	var clickX = event.pageX ;
+  // 	var clickY = event.pageY ;
 
-// 	// 要素の位置を取得
-// 	var clientRect = this.getBoundingClientRect() ;
-// 	var positionX = clientRect.left + window.pageXOffset ;
-// 	var positionY = clientRect.top + window.pageYOffset ;
+  // 	// 要素の位置を取得
+  // 	var clientRect = this.getBoundingClientRect() ;
+  // 	var positionX = clientRect.left + window.pageXOffset ;
+  // 	var positionY = clientRect.top + window.pageYOffset ;
 
-// 	// 要素内におけるクリック位置を計算
-// 	var x = clickX - positionX ;
-// 	var y = clickY - positionY ;
-// };)
-// }
-}
+  // 	// 要素内におけるクリック位置を計算
+  // 	var x = clickX - positionX ;
+  // 	var y = clickY - positionY ;
+  // };)
+  // }
+  data() {
+    return {
+      file: null
+    };
+  },
+  methods: {
+    select_file: function(e) {
+      this.file = e.target.files[0];
+    },
+    send: function() {
+      let params = new FormData();
+      params.append("image", this.file);
+      this.$axios.$post("url", params).then(res => {
+        alert("送信完了");
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>
 label {
-    color: #000000;
-    font: 1rem 'Fira Sans', sans-serif;
-
+  color: #000000;
+  font: 1rem "Fira Sans", sans-serif;
 }
 
 /* x,y入力する場所の幅 */
 input {
-    border: 1px solid #000000;
-    width: 15%;
+  border: 1px solid #000000;
+  width: 15%;
 }
-
 </style>
