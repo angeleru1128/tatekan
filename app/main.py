@@ -1,6 +1,6 @@
 #from flask.wrappers import Request
 from flask.helpers import url_for
-from app.TatekanData import TatekanData
+from TatekanData import TatekanData
 from flask import Flask, render_template,jsonify,request, abort
 from flask_cors import CORS
 import sqlite3
@@ -30,7 +30,7 @@ def allowed_file(fname):
   return '.' in fname and fname.resplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # upload tatekan
-@app.route(methods=["POST"])
+@app.route("/upload", methods=["POST"])
 def upload():
   if request.method == None:
     return abort(400)
@@ -62,7 +62,7 @@ def upload():
 def top_page():
   con = sqlite3.connect("tatekandata.db")
   cur = con.cursor()
-  tks = list(cur.execute("select * form tatekan;"))
+  tks = list(cur.execute("select * from tatekan;"))
   
   return jsonify(tks)
 
