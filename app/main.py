@@ -12,18 +12,6 @@ app.config["JSON_AS_ASCII"] = False
 cors = CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:3000"}})
 app.config['UPLOAD_FOLDER'] = UP_DIR
 
-#sample
-@app.route('/api')
-def api():
-  message = {}
-  data = {}
-
-  message['message'] = 'Hello World from Flask!'
-  data['status'] = 200
-  data['data'] = message
-
-  return jsonify(data)
-
 # allowed extensions
 ALLOWED_EXTENSIONS = [".jpg", ".png", "jpeg", "gif"]
 def allowed_file(fname):
