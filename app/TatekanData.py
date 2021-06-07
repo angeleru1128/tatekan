@@ -20,3 +20,18 @@ class TatekanData:
     def insertToDB(db_cur, tatekanData):
         sql = "insert into tatekan values(?, ?, ?, ?, ?);"
         db_cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
+
+    def jsonifyData(title, image, description, pos_x, pos_y):
+        
+        return jsonify({{"title":title, "image":image, "description":description, "pos_x":pos_x, "pos_y":pos_y}})
+
+    # topページに表示するデータの取得
+    def getTopData(db_name):
+        sql = "select * from db"
+        data = []
+        db_cur.execute(sql)
+        for row in cur.fetchall():
+            x = dict(zip([d[0] for d in cur.description], row))
+            results.append(x)
+            
+        return jsonify(data)
