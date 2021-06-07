@@ -14,11 +14,11 @@ class TatekanData:
     # 
     def createFileName(db_cur, uploaded_name):
         fname = list(db_cur.execute("select count(*) from tatekan;"))[0]
-        return fname + "." + (uploaded_name.split("."))[-1]
+        return str(fname + "." + (uploaded_name.split("."))[-1])
 
     # データベースに登録
-    def insertToDB(db_cur, tatekanData, table_name):
-        sql = "insert into " + table_name + " values(?, ?, ?, ?, ?);"
+    def insertToDB(db_cur, tatekanData):
+        sql = "insert into tatekan values(?, ?, ?, ?, ?);"
         db_cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
 
     def jsonifyData(title, image, description, pos_x, pos_y):
