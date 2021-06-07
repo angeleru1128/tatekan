@@ -24,6 +24,7 @@ export default {
 // 	var y = clickY - positionY ;
 // };)
 // }
+}
 </script>
 
 <style scoped>
