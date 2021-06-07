@@ -21,11 +21,7 @@ export default {};
 
 <style scoped>
 img {
-  position: relative;
-  /* top: 180px;
-  left: 10px; */
-
-
+  height: 100%;
 }
 
 </style>

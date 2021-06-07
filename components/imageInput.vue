@@ -1,11 +1,29 @@
 <template>
-<div>
-  <a href="#" class="UploadButton" role="button">Upload</a>
 
-  <label for="avatar">タテカン写真選択</label>
-  <input type="file" id="img" name="img" accept="image/png, image/jpeg">
-</div>
+  <v-container>
+    <v-row>
+      <v-btn
+      :loading="loading3"
+      :disabled="loading3"
+      color=#F0FFF0
+      class="ma-2 white--text"
+      @click="loader = 'loading3'"
+    >
+      Upload
+      <v-icon
+        right
+        dark
+      >
+        mdi-cloud-upload
+      </v-icon>
+    </v-btn>
+    </v-row>
+  </v-container>
 </template>
+
+
+
+
 
 
 <script>
@@ -16,15 +34,6 @@ export default {
 
 
 <style scoped> 
-.UploadButton {
-  background-color: #00a656;
-  border-radius: 1.5em;
-  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
-  padding: 1em 2em;
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-}
 </style>
 
 
