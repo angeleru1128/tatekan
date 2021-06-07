@@ -1,8 +1,8 @@
 <template>
  <div id="target">
   <label for="xy">x,y 入力</label>
-  <input type="number" name="number" max="50" value="15">
-  <input type="number" name="number" max="50" value="15">
+  <input type="number" name="number" max="50" value="15" v-model="pos_x" placeholder="x">
+  <input type="number" name="number" max="50" value="15" v-model="pos_y" placeholder="y">
  </div>
 </template>
 
