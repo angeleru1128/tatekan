@@ -1,0 +1,19 @@
+
+[
+  {
+    "title": "hello world",
+    "image": "hello.jpg",
+    "description": "lorem ipsum dolor sit am",
+    "pos_x": 20,
+    "pos_y": 50,
+    "pos": "70, 50, 10"
+  },
+  {
+    "title": "hello world2",
+    "image": "hello2.jpg",
+    "description": "lorem ipsum dolor sit am",
+    "pos_x": 20,
+    "pos_y": 100,
+    "pos": "50, 100, 10"
+  }
+]
