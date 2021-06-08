@@ -24,11 +24,7 @@
                 </template>
 
     <!-- <タテカンの画像表示> -->
-              <v-img
-                height="520"
-                src=""
-              >タテカンの画像を表示させる場所 ・srcに画像リンク貼る
-              </v-img>
+              <TatekanImage tatekan_image="tatekan_images/demo.jpg" />
 
               <v-divider class="mx-4"></v-divider>
 
@@ -65,7 +61,7 @@ import SchoolImage from "@/components/SchoolImage";
 import UploadButton from "@/components/imageInput";
 import DetailInput from "@/components/detailInput";
 import TatekanImage from "@/components/TatekanImage";
-import demos from "@/builds/tatekan-image-demo.json";
+import demos from "@/assets/tatekan-image-demo.json";
 import HeaderMenu from "@/components/Header";
 
 export default {
@@ -75,6 +71,9 @@ export default {
       let image = event.target.files; //どこかに保存
     },
     onSubmit: function() {}
+  },
+  mounted(){
+    // console.log(this.$refs.preview)
   },
   data() {
     return{
