@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="tatekanImage" />
+    <img :src='"tatekan_images/"+ tatekanImage' />
   </div>
 </template>
 <script>

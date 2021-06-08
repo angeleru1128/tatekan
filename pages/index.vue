@@ -24,7 +24,7 @@
                 </template>
 
     <!-- <タテカンの画像表示> -->
-              <TatekanImage tatekan_image="tatekan_images/demo.jpg" />
+              <TatekanImage :tatekanImage='currentTatekanImage' />
 
               <v-divider class="mx-4"></v-divider>
 
@@ -72,14 +72,22 @@ export default {
     currentTatekanTitle: 'aaaa'
     }
   },
+  computed: {
+    currentTatekanImage: function(){
+      let unsafeDemoObj = this.demos.find(element => element.title == this.currentTatekanTitle)
+      if (unsafeDemoObj){
+      return unsafeDemoObj.image
+      }
+      return ''
+    }
+  },
   methods: {
     onUpload: function() {
       //画像アップロード時の挙動
       let image = event.target.files; //どこかに保存
     },
     onSubmit: function() {},
-    // setCurrentTatekanTitle: (newTatekanTitle) => {
-    setCurrentTatekanTitle(newTatekanTitle) {
+    setCurrentTatekanTitle: function(newTatekanTitle){
       console.log('currentTatekanTitle',this.currentTatekanTitle)
       console.log('newTatekanTitle',newTatekanTitle)
       this.currentTatekanTitle  = newTatekanTitle;

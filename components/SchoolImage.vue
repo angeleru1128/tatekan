@@ -7,11 +7,14 @@
           href="#"
           shape="circle"
           alt="円形"
-          v-bind:coords="demo.pos"
+        
+          v-bind:coords="`${demo.pos_x}, ${demo.pos_y}, 10`"
           ref="preview"
           @click="()=>gettitle(demo)"
         />
         <!-- <img src="/tatekan_images/icon.png" width="12" /> -->
+        <!-- v-bind:coords="demo.pos"
+          v-bind:coords="demo.pos_X+', '+demo.pos_Y+', 10'" -->
       </div>
     </map>
 
