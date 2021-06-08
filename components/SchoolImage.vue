@@ -2,21 +2,41 @@
   <div style="position: relative;">
     <img src="tsukubamap.png" usemap="#tsukuba" />
     <map name="tsukuba">
-      <div class="icon" style="position:absolute; top : 105px; left : 210px;">
+      <div class="icon"  style="position:absolute; top : 105px; left : 210px;" v-for="demo in demos" :key="demo.title" >
         <area style="color: #00ff00;"
-          href="http://www.cman.jp"
+          href="#"
           shape="circle"
           alt="円形"
-          coords="210,105,40"
+          v-bind:coords="demo.pos"
+          ref="preview"
+          @click="gettitle(demo)"
         />
-        <img src="/tatekan_images/icon.png" width="12" />
+        <!-- <img src="/tatekan_images/icon.png" width="12" /> -->
       </div>
     </map>
+
+    <div v-for="demo in demos" :key="demo.title">{{demo.pos_x}}</div>
+    
   </div>
 </template>
 
 <script>
-export default {};
+import demos from "@/assets/tatekan-image-demo.json";
+export default {
+ data() {
+    return{
+    demos: demos
+    }
+  },
+  created() {
+    console.log(this.demos)
+  },
+  methods:{
+    gettitle(d){
+      console.log("debug1: ",d.title)
+    }
+  }
+};
 </script>
 
 <style scoped>
