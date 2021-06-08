@@ -4,7 +4,7 @@
     <!-- <左側のグリッド 筑波大学地図を表示> -->
     <v-row class="grey lighten-3" style="height: 600px;">
       <v-col cols="6" sm="6" md="6" lg="6" xl="6" style="height: 110%; text-align: center;">
-        <SchoolImage />
+        <SchoolImage v-bind:setCurrentTatekanTitle = "setCurrentTatekanTitle"/>
       </v-col> 
 
     <!-- <右側のグリッド 背景ミントグリーンの場所> -->
@@ -13,7 +13,7 @@
       
     <!-- <右側のグリッド　背景白の場所> -->
             <v-col>
-              <v-card　:loading="loading"　class="mx-auto my-12"　max-width="600">
+              <v-card :loading="loading" class="mx-auto my-12" max-width="600">
                 <template slot="progress">
                   <v-progress-linear
                     color="deep-purple"
@@ -46,6 +46,7 @@
               <v-col cols="12" sm="12" md="12" lg="12" xl="12" >
                 <DetailInput />
               </v-col>
+              <div>{{currentTatekanTitle}}</div>
               
             </v-card>
           </v-col>
@@ -65,20 +66,27 @@ import demos from "@/assets/tatekan-image-demo.json";
 import HeaderMenu from "@/components/Header";
 
 export default {
+    data() {
+    return{
+    demos: demos,
+    currentTatekanTitle: 'aaaa'
+    }
+  },
   methods: {
     onUpload: function() {
       //画像アップロード時の挙動
       let image = event.target.files; //どこかに保存
     },
-    onSubmit: function() {}
+    onSubmit: function() {},
+    // setCurrentTatekanTitle: (newTatekanTitle) => {
+    setCurrentTatekanTitle(newTatekanTitle) {
+      console.log('currentTatekanTitle',this.currentTatekanTitle)
+      console.log('newTatekanTitle',newTatekanTitle)
+      this.currentTatekanTitle  = newTatekanTitle;
+    }
   },
   mounted(){
     // console.log(this.$refs.preview)
-  },
-  data() {
-    return{
-    demos: demos
-    }
   },
   components: {
     SchoolImage,
@@ -86,7 +94,8 @@ export default {
     DetailInput,
     TatekanImage,
     HeaderMenu,
-  }
+  },
+  
 };
 </script>
 

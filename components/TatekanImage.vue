@@ -1,12 +1,12 @@
 <template>
   <div>
-    <img :src="tatekan_image" />
+    <img :src="tatekanImage" />
   </div>
 </template>
 <script>
 export default {
   props: {
-    tatekan_image: {
+    tatekanImage: {
       type: String,
       required: true
     }

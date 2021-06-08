@@ -9,7 +9,7 @@
           alt="円形"
           v-bind:coords="demo.pos"
           ref="preview"
-          @click="gettitle(demo)"
+          @click="()=>gettitle(demo)"
         />
         <!-- <img src="/tatekan_images/icon.png" width="12" /> -->
       </div>
@@ -23,6 +23,12 @@
 <script>
 import demos from "@/assets/tatekan-image-demo.json";
 export default {
+  props: {
+    setCurrentTatekanTitle: {
+      type: Function,
+      required: true
+    }
+  },
  data() {
     return{
     demos: demos
@@ -34,6 +40,7 @@ export default {
   methods:{
     gettitle(d){
       console.log("debug1: ",d.title)
+      this.setCurrentTatekanTitle(d.title)
     }
   }
 };
