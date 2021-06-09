@@ -13,7 +13,7 @@
       
     <!-- <右側のグリッド　背景白の場所> -->
             <v-col>
-              <v-card :loading="loading" class="mx-auto my-12" max-width="600">
+              <v-card  class="mx-auto my-12" max-width="600">
                 <template slot="progress">
                   <v-progress-linear
                     color="deep-purple"
@@ -44,10 +44,9 @@
 
       <!-- <x,y 入力> -->
               <v-col cols="12" sm="12" md="12" lg="12" xl="12" >
-                <DetailInput />
+                <!-- <DetailInput /> -->
               </v-col>
               <div>{{currentTatekanTitle}}</div>
-              
             </v-card>
           </v-col>
         </v-row>
