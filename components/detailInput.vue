@@ -1,37 +1,36 @@
 <template>
   <div>
     <v-container>
-      <form>
-      <v-row>
-        <input type="file" v-on:change="select_file" />
-        <v-btn color="#F0FFF0" class="ma-2 white--text" @click="send">
-          Upload
-          <v-icon right dark>
-            mdi-cloud-upload
-          </v-icon>
-        </v-btn>
-      </v-row>
-      <v-row>
-        <div id="target">
-          <label for="xy">x,y 入力</label>
-          <input
-            type="number"
-            name="number"
-            max="50"
-            value="15"
-            v-model="pos_x"
-            placeholder="x"
-          />
-          <input
-            type="number"
-            name="number"
-            max="50"
-            value="15"
-            v-model="pos_y"
-            placeholder="y"
-          />
-        </div>
-      </v-row>
+      <!-- 入力ボタンsubmitの追加 -->
+      <form v-on:submit.prevent>
+        <v-row>
+          <div id="target">
+            <label for="xy">x,y 入力</label>
+            <input
+              type="number"
+              name="number"
+              max="50"
+              value="15"
+              v-model="pos_x"
+              placeholder="x"
+            />
+            <input
+              type="number"
+              name="number"
+              max="50"
+              value="15"
+              v-model="pos_y"
+              placeholder="y"
+            />
+          </div>
+        </v-row>
+        <v-row>
+          <input type="file" v-on:change="select_file" />
+          <v-btn color="#F0FFF0" class="ma-2 white--text" @click="send" type="submit">
+            Upload
+            <v-icon right dark> mdi-cloud-upload </v-icon>
+          </v-btn>
+        </v-row>
       </form>
     </v-container>
   </div>
@@ -56,21 +55,21 @@ export default {
   // }
   data() {
     return {
-      file: null
+      file: null,
     };
   },
   methods: {
-    select_file: function(e) {
+    select_file: function (e) {
       this.file = e.target.files[0];
     },
-    send: function() {
+    send: function () {
       let params = new FormData();
       params.append("image", this.file);
-      this.$axios.$post("url", params).then(res => {
+      this.$axios.$post("url", params).then((res) => {
         alert("送信完了");
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
