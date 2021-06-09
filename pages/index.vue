@@ -76,16 +76,7 @@ export default {
       let image = event.target.files; //どこかに保存
     },
     onSubmit: function(uploadData) {
-          const axiosBase = require('axios')
-    const axios = axiosBase.create({
-      baseURL: 'http://localhost:5000',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      },
-      responseType: 'json'
-    });
-    axios.post('/upload', uploadData)
+      axios.post('/upload', uploadData)
     }
   },
   data() {
@@ -99,6 +90,7 @@ export default {
       responseType: 'json'
     });
     const data = axios.get('/topdata')
+    console.log(data)
     return{
     demos: data//demos
     }
