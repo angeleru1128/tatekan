@@ -67,6 +67,7 @@ import DetailInput from "@/components/detailInput";
 import TatekanImage from "@/components/TatekanImage";
 import demos from "@/builds/tatekan-image-demo.json";
 import HeaderMenu from "@/components/Header";
+import axios from "axios"
 
 export default {
   methods: {
@@ -74,11 +75,32 @@ export default {
       //画像アップロード時の挙動
       let image = event.target.files; //どこかに保存
     },
-    onSubmit: function() {}
+    onSubmit: function(uploadData) {
+          const axiosBase = require('axios')
+    const axios = axiosBase.create({
+      baseURL: 'http://localhost:5000',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      responseType: 'json'
+    });
+    axios.post('/upload', uploadData)
+    }
   },
   data() {
+    const axiosBase = require('axios')
+    const axios = axiosBase.create({
+      baseURL: 'http://localhost:5000',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      responseType: 'json'
+    });
+    const data = axios.get('/topdata')
     return{
-    demos: demos
+    demos: data//demos
     }
   },
   components: {

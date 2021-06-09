@@ -31,7 +31,7 @@ class TatekanData:
         cur = con.cursor()
         sql = "select * from db"
         data = []
-        db_cur.execute(sql)
+        cur.execute(sql)
         for row in cur.fetchall():
             x = dict(zip([d[0] for d in cur.description], row))
             x['pos'] = str(x['pos_x'])  + "," + str(x['pos_y'])  + "," + str(40)
