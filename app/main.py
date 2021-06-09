@@ -1,6 +1,6 @@
 #from flask.wrappers import Request
 from flask.helpers import url_for
-from app.TatekanData import TatekanData
+import TatekanData as TD
 from flask import Flask, render_template,jsonify,request, abort
 from flask_cors import CORS
 import sqlite3
@@ -12,25 +12,13 @@ app.config["JSON_AS_ASCII"] = False
 cors = CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:3000"}})
 app.config['UPLOAD_FOLDER'] = UP_DIR
 
-#sample
-@app.route('/api')
-def api():
-  message = {}
-  data = {}
-
-  message['message'] = 'Hello World from Flask!'
-  data['status'] = 200
-  data['data'] = message
-
-  return jsonify(data)
-
 # allowed extensions
 ALLOWED_EXTENSIONS = [".jpg", ".png", "jpeg", "gif"]
 def allowed_file(fname):
   return '.' in fname and fname.resplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # upload tatekan
-@app.route(methods=["POST"])
+@app.route("/upload", methods=["POST"])
 def upload():
   if request.method == None:
     return abort(400)
@@ -45,26 +33,26 @@ def upload():
   con = sqlite3.connect("tatekandata.db")
   cur = con.cursor()
 
-  tk = TatekanData(
+  tk = TD.TatekanData(
     title = request.json["title"],
-    image = TatekanData.createFileName(cur, request.json["image"]),
+    image = TD.TatekanData.createFileName(cur, request.json["image"]),
     description = request.json["description"],
     pos_x = request.json["pos_x"],
     pos_y = request.json["pos_y"]
   )
 
-  TatekanData.insertToDB(cur, tk)
+  TD.TatekanData.insertToDB(cur, tk)
 
   return url_for(request.url)
 
 # show top page
-@app.route("/")
+@app.route("/topdata", methods=["GET"])
 def top_page():
   con = sqlite3.connect("tatekandata.db")
   cur = con.cursor()
-  tks = list(cur.execute("select * form tatekan;"))
+  tks = list(cur.execute("select * from tatekan;"))
   
-  return jsonify(tks)
+  return TD.TatekanData.getTopData()
 
 if __name__ == '__main__':                        
     app.run(host="0.0.0.0", port=80, debug=True)

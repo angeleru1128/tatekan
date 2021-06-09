@@ -26,12 +26,17 @@ class TatekanData:
         return jsonify({{"title":title, "image":image, "description":description, "pos_x":pos_x, "pos_y":pos_y}})
 
     # topページに表示するデータの取得
-    def getTopData(db_name):
+    def getTopData():
+        con = sqlite3.connect('tatekandata.db')
+        cur = con.cursor()
         sql = "select * from db"
         data = []
-        db_cur.execute(sql)
+        cur.execute(sql)
         for row in cur.fetchall():
             x = dict(zip([d[0] for d in cur.description], row))
-            results.append(x)
-            
+            x['pos'] = str(x['pos_x'])  + "," + str(x['pos_y'])  + "," + str(40)
+            data.append(x)
+        
+        con.close()
+
         return jsonify(data)
