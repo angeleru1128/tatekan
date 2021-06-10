@@ -16,6 +16,7 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.3"
+    "@nuxtjs/vuetify": "^1.11.3",
+    "prettier": "^2.3.1"
   }
 }
