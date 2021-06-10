@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import jsonify
 import sqlite3
 
 class TatekanData:
@@ -9,22 +9,25 @@ class TatekanData:
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-    def createFileName(db_cur, uploaded_name):
-        fname = list(db_cur.execute("select count(*) from tatekan;"))[0]
+    def createFileName(uploaded_name):
+        con = sqlite3.connect('tatekandata.db')
+        cur = con.cursor()
+        fname = list(cur.execute("select count(*) from tatekan;"))[0]
         return str(fname + "." + (uploaded_name.split("."))[-1])
 
-    def insertToDB(db_cur, tatekanData):
+    def insertToDB(tatekanData):
+        con = sqlite3.connect('tatekandata.db')
+        cur = con.cursor()
         sql = "insert into tatekan values(?, ?, ?, ?, ?);"
-        db_cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
+        cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
 
     def jsonifyData(title, image, description, pos_x, pos_y):
-        
         return jsonify({{"title":title, "image":image, "description":description, "pos_x":pos_x, "pos_y":pos_y}})
 
     def getTopData():
         con = sqlite3.connect('tatekandata.db')
         cur = con.cursor()
-        sql = "select * from db"
+        sql = "select * from tatekan"
         data = []
         cur.execute(sql)
         for row in cur.fetchall():

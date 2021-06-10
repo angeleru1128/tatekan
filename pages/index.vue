@@ -122,8 +122,8 @@ export default {
     const data = axios.get("/topdata");
     console.log(data);
     return {
-      demos: data, //demos
-      currentTatekanTitle: "aaaa",
+      demos: data,
+      currentTatekanTitle: "aaaa"
     };
   },
   mounted() {

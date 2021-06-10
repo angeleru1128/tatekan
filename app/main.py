@@ -1,11 +1,10 @@
 #from flask.wrappers import Request
 from flask.helpers import url_for
 import TatekanData as TD
-from flask import Flask, render_template,jsonify,request, abort
+from flask import Flask, request, abort
 from flask_cors import CORS
-import sqlite3
 
-UP_DIR = "../asserts"
+UP_DIR = "../static/tatekan_images"
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
@@ -29,29 +28,22 @@ def upload():
     return abort(400)
   if not allowed_file(file.filename):
     return abort(400)
-  
-  con = sqlite3.connect("tatekandata.db")
-  cur = con.cursor()
 
   tk = TD.TatekanData(
     title = request.json["title"],
-    image = TD.TatekanData.createFileName(cur, request.json["image"]),
+    image = TD.TatekanData.createFileName(request.json["image"]),
     description = request.json["description"],
     pos_x = request.json["pos_x"],
     pos_y = request.json["pos_y"]
   )
 
-  TD.TatekanData.insertToDB(cur, tk)
+  TD.TatekanData.insertToDB(tk)
 
   return url_for(request.url)
 
 # show top page
 @app.route("/topdata", methods=["GET"])
-def top_page():
-  con = sqlite3.connect("tatekandata.db")
-  cur = con.cursor()
-  tks = list(cur.execute("select * from tatekan;"))
-  
+def top_page():  
   return TD.TatekanData.getTopData()
 
 if __name__ == '__main__':                        
