@@ -123,6 +123,7 @@ export default {
     console.log(data);
     return {
       demos: data, //demos
+      currentTatekanTitle: "aaaa",
     };
   },
   mounted() {
