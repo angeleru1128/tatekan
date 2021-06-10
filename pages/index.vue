@@ -125,7 +125,7 @@ export default {
     onSubmit: function (uploadData) {
       /*const axiosBase = require("axios");
       const axios = axiosBase.create({
-        baseURL: "http://localhost:5000",
+        baseURL: "http://127.0.0.1:5000",
         headers: {
           "Content-Type": "application/json",
           "X-Requested-With": "XMLHttpRequest",

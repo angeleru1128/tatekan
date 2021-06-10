@@ -61,7 +61,7 @@ export default {
     }
   },
 env: {
-  HOST_URL: process.env.HOST_URL || 'http://localhost:5000'
+  HOST_URL: process.env.HOST_URL || 'http://127.0.0.1:5000'
 },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
