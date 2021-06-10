@@ -12,8 +12,8 @@
           style="height: 110%; text-align: center"
         >
           <SchoolImage v-bind:setCurrentTatekanTitle="setCurrentTatekanTitle" />
+          <div>{{ currentTatekanTitle }}</div>
         </v-col>
-
         <!-- <右側のグリッド 背景ミントグリーンの場所> -->
         <v-col
           cols="6"
@@ -57,9 +57,8 @@
 
                 <!-- <x,y 入力> -->
                 <v-col cols="12" sm="12" md="12" lg="12" xl="12">
-                  <!-- <DetailInput /> -->
+                  <DetailInput /> 
                 </v-col>
-                <div>{{ currentTatekanTitle }}</div>
               </v-card>
             </v-col>
           </v-row>
@@ -93,7 +92,7 @@ export default {
       if (unsafeDemoObj) {
         return unsafeDemoObj.image;
       }
-      return "";
+      return "hello.jpg";
     },
   },
   methods: {
@@ -110,22 +109,22 @@ export default {
       axios.post("/upload", uploadData);
     },
   },
-  data() {
-    const axiosBase = require("axios");
-    const axios = axiosBase.create({
-      baseURL: "http://localhost:5000",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-      responseType: "json",
-    });
-    const data = axios.get("/topdata");
-    console.log(data);
-    return {
-      demos: data, //demos
-    };
-  },
+  // data() {
+  //   const axiosBase = require("axios");
+  //   const axios = axiosBase.create({
+  //     baseURL: "http://localhost:5000",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "X-Requested-With": "XMLHttpRequest",
+  //     },
+  //     responseType: "json",
+  //   });
+  //   const data = axios.get("/topdata");
+  //   console.log(data);
+  //   return {
+  //     demos: data, //demos
+  //   };
+  // },
   mounted() {
     // console.log(this.$refs.preview)
   },
