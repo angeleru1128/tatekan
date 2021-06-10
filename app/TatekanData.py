@@ -1,5 +1,4 @@
-from flask import Flask, render_template,jsonify
-from flask_cors import CORS
+from flask import Flask, jsonify
 import sqlite3
 
 class TatekanData:
@@ -10,13 +9,10 @@ class TatekanData:
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-    # 画像ファイルのファイル名を生成
-    # 
     def createFileName(db_cur, uploaded_name):
         fname = list(db_cur.execute("select count(*) from tatekan;"))[0]
         return str(fname + "." + (uploaded_name.split("."))[-1])
 
-    # データベースに登録
     def insertToDB(db_cur, tatekanData):
         sql = "insert into tatekan values(?, ?, ?, ?, ?);"
         db_cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
@@ -25,7 +21,6 @@ class TatekanData:
         
         return jsonify({{"title":title, "image":image, "description":description, "pos_x":pos_x, "pos_y":pos_y}})
 
-    # topページに表示するデータの取得
     def getTopData():
         con = sqlite3.connect('tatekandata.db')
         cur = con.cursor()
