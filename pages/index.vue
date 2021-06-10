@@ -78,20 +78,37 @@ import HeaderMenu from "@/components/Header";
 import axios from "axios";
 
 export default {
-  //data() {
-  //  return {
-  //    demos: demos,
-  //    currentTatekanTitle: "aaaa",
-  //  };
-  //},
+  /*data() {
+    return {
+      demos: demos,
+      currentTatekanTitle: "aaaa",
+    };
+  },*/
+  data() {
+    const axiosBase = require("axios");
+    const axios = axiosBase.create({
+      baseURL: "http://localhost:5000",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      responseType: "json"
+    });
+    let data = axios.get("/topdata");
+    console.log(data);
+    return {
+      demos: data,
+      currentTatekanTitle: "aaaa"
+    };
+  },
   computed: {
     currentTatekanImage: function () {
-      let unsafeDemoObj = this.demos.find(
+      /*let unsafeDemoObj = this.demos.find(
         (element) => element.title == this.currentTatekanTitle
-      );
-      if (unsafeDemoObj) {
+      );*/
+      /*if (unsafeDemoObj) {
         return unsafeDemoObj.image;
-      }
+      }*/
       return "hello.jpg";
     },
   },
@@ -106,25 +123,17 @@ export default {
       this.currentTatekanTitle = newTatekanTitle;
     },
     onSubmit: function (uploadData) {
-      axios.post("/upload", uploadData);
+      /*const axiosBase = require("axios");
+      const axios = axiosBase.create({
+        baseURL: "http://localhost:5000",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        responseType: "json"
+      });
+      axios.$post("/upload", uploadData);*/
     },
-  },
-  data() {
-    const axiosBase = require("axios");
-    const axios = axiosBase.create({
-      baseURL: "http://localhost:5000",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-      responseType: "json",
-    });
-    const data = axios.get("/topdata");
-    console.log(data);
-    return {
-      demos: data,
-      currentTatekanTitle: "aaaa"
-    };
   },
   mounted() {
     // console.log(this.$refs.preview)

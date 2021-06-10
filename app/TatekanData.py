@@ -18,7 +18,7 @@ class TatekanData:
     def insertToDB(tatekanData):
         con = sqlite3.connect('tatekandata.db')
         cur = con.cursor()
-        sql = "insert into tatekan values(?, ?, ?, ?, ?);"
+        sql = "insert into tatekan(title, image, description, pos_x, pos_y) values(?, ?, ?, ?, ?);"
         cur.execute(sql, tatekanData.title, tatekanData.image, tatekanData.description, tatekanData.pos_x, tatekanData.pos_y)
 
     def jsonifyData(title, image, description, pos_x, pos_y):
@@ -34,7 +34,6 @@ class TatekanData:
             x = dict(zip([d[0] for d in cur.description], row))
             x['pos'] = str(x['pos_x'])  + "," + str(x['pos_y'])  + "," + str(40)
             data.append(x)
-        
         con.close()
 
         return jsonify(data)

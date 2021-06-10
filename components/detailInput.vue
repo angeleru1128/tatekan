@@ -63,9 +63,13 @@ export default {
       this.file = e.target.files[0];
     },
     send: function () {
+      const axiosBase = require("axios");
+      const axios = axiosBase.create({
+        baseURL: "http://localhost:5000",
+      });
       let params = new FormData();
       params.append("image", this.file);
-      this.$axios.$post("url", params).then((res) => {
+      axios.post("/upload", params).then((res) => {
         alert("送信完了");
       });
     },
