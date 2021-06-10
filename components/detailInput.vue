@@ -25,6 +25,28 @@
           </div>
         </v-row>
         <v-row>
+        <div id="target">
+            <label for="description">description</label>
+            <input
+              type="text"
+              name="description"
+              value="lorem iosum"
+              v-model="description"
+              placeholder="タテカンの説明"
+            />
+          </div>
+                  <div id="target">
+            <label for="title">title</label>
+            <input
+              type="text"
+              name="title"
+              value="hello"
+              v-model="description"
+              placeholder="lorem ipsum"
+            />
+          </div>
+        </v-row>
+        <v-row>
           <input type="file" name="uploadFile" v-on:change="select_file" />
           <v-btn color="#F0FFF0" class="ma-2 white--text" @click="send" type="submit">
             Upload
