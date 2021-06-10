@@ -25,7 +25,7 @@
           </div>
         </v-row>
         <v-row>
-          <input type="file" v-on:change="select_file" />
+          <input type="file" name="uploadFile" v-on:change="select_file" />
           <v-btn color="#F0FFF0" class="ma-2 white--text" @click="send" type="submit">
             Upload
             <v-icon right dark> mdi-cloud-upload </v-icon>
@@ -66,6 +66,9 @@ export default {
       const axiosBase = require("axios");
       const axios = axiosBase.create({
         baseURL: "http://localhost:5000",
+        headers: {
+          'Content-type': 'multipart/form-data',
+        }
       });
       let params = new FormData();
       params.append("image", this.file);
