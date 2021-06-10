@@ -78,12 +78,12 @@ import HeaderMenu from "@/components/Header";
 import axios from "axios";
 
 export default {
-  data() {
-    return {
-      demos: demos,
-      currentTatekanTitle: "aaaa",
-    };
-  },
+  //data() {
+  //  return {
+  //    demos: demos,
+  //    currentTatekanTitle: "aaaa",
+  //  };
+  //},
   computed: {
     currentTatekanImage: function () {
       let unsafeDemoObj = this.demos.find(
@@ -109,22 +109,22 @@ export default {
       axios.post("/upload", uploadData);
     },
   },
-  // data() {
-  //   const axiosBase = require("axios");
-  //   const axios = axiosBase.create({
-  //     baseURL: "http://localhost:5000",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "X-Requested-With": "XMLHttpRequest",
-  //     },
-  //     responseType: "json",
-  //   });
-  //   const data = axios.get("/topdata");
-  //   console.log(data);
-  //   return {
-  //     demos: data, //demos
-  //   };
-  // },
+  data() {
+    const axiosBase = require("axios");
+    const axios = axiosBase.create({
+      baseURL: "http://localhost:5000",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      responseType: "json",
+    });
+    const data = axios.get("/topdata");
+    console.log(data);
+    return {
+      demos: data, //demos
+    };
+  },
   mounted() {
     // console.log(this.$refs.preview)
   },
