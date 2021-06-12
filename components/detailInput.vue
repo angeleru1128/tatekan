@@ -10,6 +10,7 @@
               type="number"
               name="pos_x"
               max="300"
+              min="0"
               value="15"
               v-model="pos_x"
               placeholder="x"
@@ -18,6 +19,7 @@
               type="number"
               name="pos_y"
               max="300"
+              min="0"
               value="15"
               v-model="pos_y"
               placeholder="y"
@@ -41,7 +43,7 @@
               type="text"
               name="title"
               value="hello"
-              v-model="description"
+              v-model="title"
               placeholder="lorem ipsum"
             />
           </div>
@@ -94,8 +96,21 @@ export default {
       });
       let params = new FormData();
       params.append("image", this.file);
+      params.append("description", this.description);
+      params.append("title", this.title);
+      params.append("pos_x", this.pos_x);
+      params.append("pos_y", this.pos_y);
       axios.post("/upload", params).then((res) => {
+        this.title = null;
+        this.file = null;
+        this.description = null;
+        this.pos_x = null;
+        this.pos_y = null;
         alert("送信完了");
+      }).catch(function (error) {
+        if(error.message){
+          console.log(error.message);
+        }
       });
     },
   },

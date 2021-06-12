@@ -95,21 +95,21 @@ export default {
       responseType: "json"
     });
     let data = axios.get("/topdata");
-    console.log(data);
+    //console.log(data);
     return {
       demos: data,
-      currentTatekanTitle: "aaaa"
+      currentTatekanTitle: ""
     };
   },
   computed: {
     currentTatekanImage: function () {
-      /*let unsafeDemoObj = this.demos.find(
+      let unsafeDemoObj = demos.find(
         (element) => element.title == this.currentTatekanTitle
-      );*/
-      /*if (unsafeDemoObj) {
+      );
+      if (unsafeDemoObj) {
         return unsafeDemoObj.image;
-      }*/
-      return "hello.jpg";
+      }
+      //return "hello.jpg";
     },
   },
   methods: {
@@ -122,7 +122,7 @@ export default {
       console.log("newTatekanTitle", newTatekanTitle);
       this.currentTatekanTitle = newTatekanTitle;
     },
-    onSubmit: function (uploadData) {
+    /*onSubmit: function (uploadData) {
       const axiosBase = require("axios");
       const axios = axiosBase.create({
         baseURL: "http://127.0.0.1:5000",
@@ -133,7 +133,7 @@ export default {
         responseType: "json"
       });
       axios.$post("/upload", uploadData);
-    },
+    },*/
   },
   mounted() {
     // console.log(this.$refs.preview)

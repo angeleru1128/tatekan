@@ -9,7 +9,7 @@ from flask import Flask, request, abort
 from flask_cors import CORS
 import os
 
-UP_DIR = "./static/tatekan_images"
+UP_DIR = "static/tatekan_images/"
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024*4 * 1024*4
@@ -29,12 +29,12 @@ def upload():
   
   if request.method == None:
     return abort(Response("method is None"))
-  if 'upLoadFile' not in request.files:
+  if 'image' not in request.files:
     return abort(Response("file is None"))
   
-  file = request.files["uploadFile"]
-  filename = TD.createFileName(str(file.filename))
-  file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+  file = request.files["image"]
+  filename = TD.createFileName(file.filename)
+  file.save(UP_DIR + filename)
   
   if filename == '':
     return abort(Response("filename is None"))
@@ -55,7 +55,7 @@ def upload():
     return abort(Response("Failed to insert to db"))
   #TD.TatekanData.insertToDB(tk)
 
-  return url_for(request.url)
+  return jsonify({"message": "file upload:success", "result":200}) #url_for(request.url)
 """
 @app.errorhandler(400)
 @app.errorhandler(500)

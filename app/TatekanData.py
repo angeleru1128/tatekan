@@ -4,9 +4,9 @@ import sqlite3
 def createFileName(uploaded_name):
     con = sqlite3.connect('tatekandata.db')
     cur = con.cursor()
-    fname = list(cur.execute("select count(*) from tatekan"))[0]
+    fname = int(list(cur.execute("select count(*) from tatekan"))[0][0])
     con.close()
-    return str(fname + "." + (uploaded_name.split("."))[-1])
+    return "tatekanImage" + str(fname) + "." + str((uploaded_name.split("."))[-1])
 
 def insertToDB(title, image, description, pos_x, pos_y):
     con = sqlite3.connect('tatekandata.db')
