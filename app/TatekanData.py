@@ -12,7 +12,11 @@ def insertToDB(title, image, description, pos_x, pos_y):
     con = sqlite3.connect('tatekandata.db')
     cur = con.cursor()
     sql = "insert into tatekan(title, image, descriprition, pos_x, pos_y) values(?, ?, ?, ?, ?)"
-    cur.execute(sql, (title, image, description, pos_x, pos_y))
+    try:
+        cur.execute(sql, (title, image, description, pos_x, pos_y))
+    except:
+        return False
+    
     con.commit()
     con.close()
 

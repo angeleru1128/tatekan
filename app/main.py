@@ -21,7 +21,7 @@ app.config['UPLOAD_FOLDER'] = UP_DIR
 # allowed extensions
 ALLOWED_EXTENSIONS = ["jpg", "png", "jpeg", "gif"]
 def allowed_file(fname):
-  return '.' in fname and fname.resplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+  return '.' in fname and fname.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # upload tatekan
 @app.route("/upload", methods=["POST"])
@@ -51,13 +51,8 @@ def upload():
     pos_y = 12#request.json["pos_y"]
   )
   """
-  TD.insertToDB(
-    request.json["title"],
-    filename,
-    request.json["description"],
-    request.json["pos_x"],
-    request.json["pos_y"]
-  )
+  if False == TD.insertToDB(request.form["title"], filename, request.form["description"], request.form["pos_x"], request.form["pos_y"]):
+    return abort(Response("Failed to insert to db"))
   #TD.TatekanData.insertToDB(tk)
 
   return url_for(request.url)
