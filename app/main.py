@@ -52,11 +52,11 @@ def upload():
   )
   """
   TD.insertToDB(
-    "sample_title", #request.json["title"],
+    request.json["title"],
     filename,
-    "sample_description", #request.json["description"],
-    10,#request.json["pos_x"],
-    12#request.json["pos_y"]
+    request.json["description"],
+    request.json["pos_x"],
+    request.json["pos_y"]
   )
   #TD.TatekanData.insertToDB(tk)
 

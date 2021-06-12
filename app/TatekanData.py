@@ -12,7 +12,8 @@ def insertToDB(title, image, description, pos_x, pos_y):
     con = sqlite3.connect('tatekandata.db')
     cur = con.cursor()
     sql = "insert into tatekan(title, image, description, pos_x, pos_y) values(?, ?, ?, ?, ?)"
-    cur.execute(sql, title, image, description, pos_x, pos_y)
+    cur.execute(sql, (title, image, description, pos_x, pos_y))
+    con.commit()
     con.close()
 
 def jsonifyData(title, image, description, pos_x, pos_y):
