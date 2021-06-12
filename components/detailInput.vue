@@ -101,11 +101,6 @@ export default {
       params.append("pos_x", this.pos_x);
       params.append("pos_y", this.pos_y);
       axios.post("/upload", params).then((res) => {
-        this.title = null;
-        this.file = null;
-        this.description = null;
-        this.pos_x = null;
-        this.pos_y = null;
         alert("送信完了");
       }).catch(function (error) {
         if(error.message){

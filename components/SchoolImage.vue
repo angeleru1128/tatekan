@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import demos from "@/assets/tatekan-image-demo.json";
+//import demos from "@/assets/tatekan-image-demo.json";
 export default {
   props: {
     setCurrentTatekanTitle: {

@@ -73,10 +73,11 @@ import SchoolImage from "@/components/SchoolImage";
 import UploadButton from "@/components/imageInput";
 import DetailInput from "@/components/detailInput";
 import TatekanImage from "@/components/TatekanImage";
-import demos from "@/assets/tatekan-image-demo.json";
+//import demos from "@/assets/tatekan-image-demo.json";
+import topdata_get from "@/middleware/get_topdata.js"
 import HeaderMenu from "@/components/Header";
 import axios from "axios";
-
+let data;
 export default {
   /*data() {
     return {
@@ -85,17 +86,8 @@ export default {
     };
   },*/
   data() {
-    const axiosBase = require("axios");
-    const axios = axiosBase.create({
-      baseURL: "http://127.0.0.1:5000",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-      responseType: "json"
-    });
-    let data = axios.get("/topdata");
-    //console.log(data);
+    data = topdata_get();
+    console.log("data at data ",data);
     return {
       demos: data,
       currentTatekanTitle: ""
@@ -103,7 +95,8 @@ export default {
   },
   computed: {
     currentTatekanImage: function () {
-      let unsafeDemoObj = demos.find(
+      console.log("demos", this.demos);
+      let unsafeDemoObj = this.demos.find(
         (element) => element.title == this.currentTatekanTitle
       );
       if (unsafeDemoObj) {
@@ -145,6 +138,7 @@ export default {
     TatekanImage,
     HeaderMenu,
   },
+  //middleware: 'get_topdata'
 };
 </script>
 
