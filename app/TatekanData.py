@@ -11,13 +11,13 @@ def createFileName(uploaded_name):
 def insertToDB(title, image, description, pos_x, pos_y):
     con = sqlite3.connect('tatekandata.db')
     cur = con.cursor()
-    sql = "insert into tatekan(title, image, description, pos_x, pos_y) values(?, ?, ?, ?, ?)"
+    sql = "insert into tatekan(title, image, descriprition, pos_x, pos_y) values(?, ?, ?, ?, ?)"
     cur.execute(sql, (title, image, description, pos_x, pos_y))
     con.commit()
     con.close()
 
 def jsonifyData(title, image, description, pos_x, pos_y):
-    return jsonify({{"title":title, "image":image, "description":description, "pos_x":pos_x, "pos_y":pos_y}})
+    return jsonify({{"title":title, "image":image, "descriprition":description, "pos_x":pos_x, "pos_y":pos_y}})
 
 def getTopData():
     con = sqlite3.connect('tatekandata.db')
