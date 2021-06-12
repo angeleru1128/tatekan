@@ -13,7 +13,7 @@
           href="#"
           shape="circle"
           alt="円形"
-          v-bind:coords="`${demo.pos_x}, ${demo.pos_y}, 10`"
+          v-bind:coords="`${demo.pos_x}, ${demo.pos_y}, 20`"
           ref="preview"
           @click="() => gettitle(demo)"
         />
