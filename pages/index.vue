@@ -123,7 +123,7 @@ export default {
       this.currentTatekanTitle = newTatekanTitle;
     },
     onSubmit: function (uploadData) {
-      /*const axiosBase = require("axios");
+      const axiosBase = require("axios");
       const axios = axiosBase.create({
         baseURL: "http://127.0.0.1:5000",
         headers: {
@@ -132,7 +132,7 @@ export default {
         },
         responseType: "json"
       });
-      axios.$post("/upload", uploadData);*/
+      axios.$post("/upload", uploadData);
     },
   },
   mounted() {

@@ -14,9 +14,9 @@ UP_DIR = "./static/tatekan_images"
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024*4 * 1024*4
 app.config["JSON_AS_ASCII"] = False
-cors = CORS(app, resources={r"/*": {"origins": "*"}}) #, headers='Content-Type')
+cors = CORS(app, resources={r"/*": {"origins": "*"}}, headers='Content-Type')
 app.config['UPLOAD_FOLDER'] = UP_DIR
-#app.config["CORS_HEADERS"] = 'Content-Type'
+app.config["CORS_HEADERS"] = 'Content-Type'
 
 # allowed extensions
 ALLOWED_EXTENSIONS = ["jpg", "png", "jpeg", "gif"]
