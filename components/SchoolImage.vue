@@ -33,8 +33,21 @@ export default {
   },
   data() {
     return {
-      demos: demos
+      demos: []
     };
+  },
+  mounted() {
+    // console.log(this.$refs.preview)
+    const axiosBase = require("axios");
+    const axios = axiosBase.create({
+      baseURL: "http://127.0.0.1:5000",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      responseType: "json"
+    });
+    axios.get("/topdata").then(response => {this.demos = response.data});
   },
   created() {
     console.log(this.demos);

@@ -86,17 +86,30 @@ export default {
     };
   },*/
   data() {
-    data = topdata_get();
-    console.log("data at data ",data);
+    //data = topdata_get();
+    //console.log("data at data ",data);
     return {
-      demos: data,
+      demos: [],
       currentTatekanTitle: ""
     };
   },
-  computed: {
+  /*async asyncData() {
+    const axiosBase = require("axios");
+    const axios = axiosBase.create({
+      baseURL: "http://127.0.0.1:5000",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      responseType: "json"
+    });
+    const { data } = await axios.get("/topdata");
+    return data;
+  },*/
+  /*computed: {
     currentTatekanImage: function () {
-      console.log("demos", this.demos);
-      let unsafeDemoObj = this.demos.find(
+      console.log("demos", data);
+      let unsafeDemoObj = data.find(
         (element) => element.title == this.currentTatekanTitle
       );
       if (unsafeDemoObj) {
@@ -104,8 +117,18 @@ export default {
       }
       //return "hello.jpg";
     },
-  },
+  },*/
   methods: {
+    currentTatekanImage: function () {
+      console.log("demos", data);
+      let unsafeDemoObj = data.find(
+        (element) => element.title == this.currentTatekanTitle
+      );
+      if (unsafeDemoObj) {
+        return unsafeDemoObj.image;
+      }
+      //return "hello.jpg";
+    },
     onUpload: function () {
       //画像アップロード時の挙動
       let image = event.target.files; //どこかに保存
@@ -130,6 +153,16 @@ export default {
   },
   mounted() {
     // console.log(this.$refs.preview)
+    const axiosBase = require("axios");
+    const axios = axiosBase.create({
+      baseURL: "http://127.0.0.1:5000",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      responseType: "json"
+    });
+  axios.get("/topdata").then(response => {this.demos = response.data});
   },
   components: {
     SchoolImage,
