@@ -51,7 +51,7 @@
         <v-row>
           <input type="file" name="uploadFile" v-on:change="select_file" />
           <v-btn color="#F0FFF0" class="ma-2 white--text" @click="send" type="submit">
-            Upload
+            Upload(今はできません)
             <v-icon right dark> mdi-cloud-upload </v-icon>
           </v-btn>
         </v-row>
