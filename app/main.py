@@ -9,7 +9,7 @@ from flask import Flask, request, abort
 from flask_cors import CORS
 import os
 
-UP_DIR = "/var/www/tatekan/dist/tatekan_images/"
+UP_DIR = "/var/www/tatekan/static/tatekan_images/"
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
