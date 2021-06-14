@@ -12,7 +12,7 @@ import os
 UP_DIR = "dist/tatekan_images/"
 
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 1 * 1024*4 * 1024*4
+app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
 app.config["JSON_AS_ASCII"] = False
 cors = CORS(app, resources={r"/*": {"origins": "*"}}, headers='Content-Type')
 app.config['UPLOAD_FOLDER'] = UP_DIR

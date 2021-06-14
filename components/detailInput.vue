@@ -9,7 +9,7 @@
             <input
               type="number"
               name="pos_x"
-              max="300"
+              
               min="0"
               value="15"
               v-model="pos_x"
@@ -18,7 +18,7 @@
             <input
               type="number"
               name="pos_y"
-              max="300"
+              
               min="0"
               value="15"
               v-model="pos_y"
