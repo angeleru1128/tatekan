@@ -102,6 +102,7 @@ export default {
       params.append("pos_y", this.pos_y);
       axios.post("/upload", params).then((res) => {
         alert("送信完了");
+        location.reload();
       }).catch(function (error) {
         if(error.message){
           console.log(error.message);

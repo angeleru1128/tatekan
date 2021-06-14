@@ -29,6 +29,10 @@ export default {
     setCurrentTatekanTitle: {
       type: Function,
       required: true
+    },
+    setCurrentTatekanImage: {
+      type: Function,
+      required: true
     }
   },
   data() {
@@ -56,6 +60,7 @@ export default {
     gettitle(d) {
       console.log("debug1: ", d.title);
       this.setCurrentTatekanTitle(d.title);
+      this.setCurrentTatekanImage();
     }
   }
 };

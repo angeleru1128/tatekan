@@ -1,16 +1,26 @@
 <template>
   <div>
-    <img :src='"tatekan_images/"+ tatekanImage' />
+    <img :src="require(`static/tatekan_images/${currentTatekanImage}`)" />
   </div>
 </template>
 <script>
 export default {
+  /*data() {
+    return {
+      currentTatekanImage: "hello.jpg"
+    };
+  },*/
   props: {
-    tatekanImage: {
+    currentTatekanImage: {
       type: String,
       required: true
     }
-  }
+  },
+  /*methods: {
+    currentTatekanImage() {
+      this.currentTatekanImage = this.getTatekanImage();
+    }
+  }*/
 };
 </script>
 

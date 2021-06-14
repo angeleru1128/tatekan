@@ -11,7 +11,7 @@
           xl="6"
           style="height: 110%; text-align: center"
         >
-          <SchoolImage v-bind:setCurrentTatekanTitle="setCurrentTatekanTitle" />
+          <SchoolImage v-bind:setCurrentTatekanTitle="setCurrentTatekanTitle" v-bind:setCurrentTatekanImage="setCurrentTatekanImage" />
           <div>{{ currentTatekanTitle }}</div>
         </v-col>
         <!-- <右側のグリッド 背景ミントグリーンの場所> -->
@@ -37,7 +37,7 @@
                 </template>
 
                 <!-- <タテカンの画像表示> -->
-                <TatekanImage :tatekanImage="currentTatekanImage" />
+                <TatekanImage v-bind:currentTatekanImage="currentTatekanImage" />
 
                 <v-divider class="mx-4"></v-divider>
 
@@ -90,44 +90,24 @@ export default {
     //console.log("data at data ",data);
     return {
       demos: [],
-      currentTatekanTitle: ""
+      currentTatekanTitle: "",
+      currentTatekanImage: "hello.jpg"
     };
   },
-  /*async asyncData() {
-    const axiosBase = require("axios");
-    const axios = axiosBase.create({
-      baseURL: "http://127.0.0.1:5000",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-      responseType: "json"
-    });
-    const { data } = await axios.get("/topdata");
-    return data;
-  },*/
-  /*computed: {
-    currentTatekanImage: function () {
-      console.log("demos", data);
-      let unsafeDemoObj = data.find(
-        (element) => element.title == this.currentTatekanTitle
-      );
-      if (unsafeDemoObj) {
-        return unsafeDemoObj.image;
-      }
-      //return "hello.jpg";
-    },
-  },*/
   methods: {
-    currentTatekanImage: function () {
-      console.log("demos", data);
-      let unsafeDemoObj = data.find(
+    setCurrentTatekanImage: function () {
+      console.log("data", data);
+      let unsafeDemoObj = this.demos.find(
         (element) => element.title == this.currentTatekanTitle
       );
-      if (unsafeDemoObj) {
-        return unsafeDemoObj.image;
+      if (unsafeDemoObj != null) {
+        console.log("unsafeDemoObj", unsafeDemoObj);
+        this.currentTatekanImage = unsafeDemoObj.image;
+        return String(unsafeDemoObj.image);
       }
-      //return "hello.jpg";
+      console.log("hello.jpg");
+      this.currentTatekanImage = "hello.jpg"
+      return "hello.jpg";
     },
     onUpload: function () {
       //画像アップロード時の挙動
@@ -138,18 +118,6 @@ export default {
       console.log("newTatekanTitle", newTatekanTitle);
       this.currentTatekanTitle = newTatekanTitle;
     },
-    /*onSubmit: function (uploadData) {
-      const axiosBase = require("axios");
-      const axios = axiosBase.create({
-        baseURL: "http://127.0.0.1:5000",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest",
-        },
-        responseType: "json"
-      });
-      axios.$post("/upload", uploadData);
-    },*/
   },
   mounted() {
     // console.log(this.$refs.preview)
