@@ -107,6 +107,7 @@ export default {
         if(error.message){
           console.log(error.message);
         }
+        alert("Failed to upload.")
       });
     },
   },
