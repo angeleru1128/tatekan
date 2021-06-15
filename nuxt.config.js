@@ -40,7 +40,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-basic-auth-module'
   ],
+  basic: {
+    name: 'kisl2021',
+    pass: 'aHlDz0r4'
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

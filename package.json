@@ -13,6 +13,7 @@
     "core-js": "^3.9.1",
     "flask": "^0.2.10",
     "nuxt": "^2.15.3",
+    "nuxt-basic-auth-module": "^1.4.0",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
